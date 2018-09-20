@@ -23,7 +23,7 @@ public class Sudoku {
 		String row;
 		int rowCounter = 0;
 		while ((row = br.readLine()) != null) {
-			int[] numbers = Stream.of(row.split(";")).mapToInt((x) -> {
+			int[] numbers = Stream.of(row.split(",")).mapToInt((x) -> {
 				if (x.isEmpty())
 					return 0;
 				return Integer.parseInt(x);
