@@ -1,9 +1,13 @@
 # Sudoku-Solver
-Simple sudoku solver using backtracking. Reading sudoku data from a csv file.
+Simple sudokuSolver solver using backtracking. Reading sudokuSolver data from a csv file.
 
-Each csv file represents one sudoku. It needs the following format:
+Each csv file represents one sudokuSolver. The sudokuSolver needs to be given in the following format:
   - Nine rows in total.
-  - Each row has to look like this: 1,,,3,,6,,,
-    - So if there is a number, type in that number.
-    - Separate columns by a comma (,).
-    - If the field is empty, just type in the next comma.
+  - Each row has to be structured by the following rules:
+    - If a number is given, type in that number.
+    - If the cell is empty, don't input anything.
+    - Separate values by a comma `,`.
+
+- Example row: `1,2,3,,5,6,,,9`
+
+The solver is now able to compute all possible solutions for a given sudoku.
