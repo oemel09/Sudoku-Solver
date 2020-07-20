@@ -5,10 +5,10 @@ import java.io.FileReader;
 
 public class Sudoku {
 
-    private final Cell[][] sudoku;
+    private final Cell[][] grid;
 
     Sudoku() {
-        this.sudoku = new Cell[9][9];
+        this.grid = new Cell[9][9];
     }
 
     Sudoku(String fileName) throws Exception {
@@ -22,7 +22,7 @@ public class Sudoku {
     }
 
     void setRow(int rowIndex, Cell[] row) {
-        this.sudoku[rowIndex] = row;
+        this.grid[rowIndex] = row;
     }
 
     private Cell[] parseInputRow(String[] inputRow) {
@@ -51,18 +51,18 @@ public class Sudoku {
     }
 
     public Cell[][] get() {
-        return sudoku;
+        return grid;
     }
 
     public Cell getCell(int x, int y) {
-        return sudoku[x][y];
+        return grid[x][y];
     }
 
     public Sudoku copy() {
         Sudoku sudoku = new Sudoku();
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                sudoku.sudoku[i][j] = new Cell(this.sudoku[i][j]);
+                sudoku.grid[i][j] = new Cell(this.grid[i][j]);
             }
         }
         return sudoku;
@@ -71,12 +71,12 @@ public class Sudoku {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < sudoku.length; i++) {
-            for (int j = 0; j < sudoku[0].length; j++) {
-                if (sudoku[i][j].getNumber() == 0) {
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (grid[i][j].getNumber() == 0) {
                     sb.append("   ");
                 } else {
-                    sb.append(" ").append(sudoku[i][j]).append(" ");
+                    sb.append(" ").append(grid[i][j]).append(" ");
                 }
                 if (j % 3 == 2 && j != 8) {
                     sb.append("|");
