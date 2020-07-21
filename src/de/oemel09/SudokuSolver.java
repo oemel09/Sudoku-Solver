@@ -45,7 +45,7 @@ public class SudokuSolver {
             return false;
         }
         getCell(current).resetNumber();
-        resetAllFurtherCells();
+        resetAllNextCells();
         return true;
     }
 
@@ -66,7 +66,7 @@ public class SudokuSolver {
         } while (getCell(current).isFixed());
     }
 
-    private void resetAllFurtherCells() {
+    private void resetAllNextCells() {
         for (int i = current; i < 81 - 1; i++) {
             getCell(i + 1).resetOldNumber();
         }
@@ -118,7 +118,7 @@ public class SudokuSolver {
     }
 
     private Cell getCell(int currentCell) throws IndexOutOfBoundsException {
-        return sudoku.get()[currentCell / 9][currentCell % 9];
+        return sudoku.getCell(currentCell / 9, currentCell % 9);
     }
 
     private boolean hasNext() {
